@@ -16,6 +16,20 @@ This application intentionally includes the following security breaches for educ
 1. **Cross-Site Scripting (XSS) Vulnerability**: User input is rendered as HTML without proper sanitization, demonstrating the risk of XSS attacks.
 2. **Insecure Direct Object Reference (IDOR) Vulnerability**: Users can access prediction details directly via URLs, demonstrating the risk of IDOR attacks.
 
+## Corrective Measures
+### Cross-Site Scripting (XSS)  
+To protect your application against XSS attacks, you should always validate and escape user inputs. Here are some corrective measures:
+
+- **Input Sanitization:** Use a library like DOMPurify to sanitize user inputs before displaying them in the application.
+- **Avoid v-html:** If possible, avoid using v-html to render user content. Instead, use text bindings that automatically escape dangerous content.
+- **Content Security Policy (CSP):** Implement a strict CSP to prevent the execution of untrusted scripts.
+### Insecure Direct Object Reference (IDOR)
+To protect your application against IDOR attacks, you should always verify permissions before allowing access to resources:
+
+- **Access Controls:** Implement robust server-side access controls to verify that the user has the necessary rights to access a resource.
+- **Use Secure Identifiers:** Instead of exposing direct identifiers like IDs in URLs, use secure or encrypted identifiers that cannot be easily guessed.
+You can include this paragraph in your README.md file to describe the potential security measures that can be taken to mitigate the vulnerabilities.
+
 ## Project Setup
 
 ### Prerequisites
